@@ -1,9 +1,10 @@
 import openai
 from openai import OpenAI
+import streamlit as st
 import os
 
 # Instantiate the OpenAI client
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+client = openai.Client(api_key=st.secrets["OPENAI_API_KEY"])
 
 def analyze_10k_filing(file_path):
     # Read the content of the 10-K filing
